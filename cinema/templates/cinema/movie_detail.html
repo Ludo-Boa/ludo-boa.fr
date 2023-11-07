@@ -1,0 +1,68 @@
+{% extends 'cine_base.html' %}
+{% load static %}
+{% block cineContent %}
+
+
+    
+    <section class="section section--details section--bg" data-bg="{{ movie_detail.poster.url }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-white">{{ movie_detail.title }}</h1>
+                </div>
+
+                <div class="col-12 col-xl-6">
+					<div class="card card--details">
+						<div class="row">
+							<!-- card cover -->
+							<div class="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-5">
+								<div class="card__cover">
+									<img src="{{ movie_detail.poster.url }}" alt="">
+								</div>
+								{% comment %} <a href="" class="card__trailer"><i class="icon ion-ios-play-circle"></i> Watch trailer</a> {% endcomment %}
+							</div>
+							<!-- end card cover -->
+
+							<!-- card content -->
+							<div class="col-12 col-md-8 col-lg-9 col-xl-7">
+								<div class="card__content">
+									<ul class="card__meta">
+										{% if movie_detail.production %}
+										<li><span>Production:</span> {{ movie_detail.production }}</li>
+										{% endif %}
+										<li><span>Genre:</span>
+											
+											{% for genre in genre_list %}
+											
+												<a href="#">{{ genre.name }}</a>
+											{% endfor %}
+											
+											<small> {{ movie_detail.genre.all|join:", " }}</small></li>
+										<li><span>Année de sortie:</span> {{ movie_detail.year }}</li>
+										<li><span>Durée:</span> <span class="duration">{{ movie_detail.time|time:"G:i:s" }}</span></li>
+										
+									</ul>
+									
+								</div>
+							</div>
+							<!-- end card content -->
+						</div>
+					</div>
+				</div>
+                <div class="col-12 col-xl-6">
+                    <div class="video-container">
+                        <video id="videoPlayer" playsinline seekTime controls data-poster="{{ movie_detail.poster.url }}" preload="metadata">
+                            <source src="{{ movie_detail.movie_file.url }}" type="video/mp4" />
+                            
+							
+                            <!-- Captions are optional -->
+                            {% comment %} <track kind="captions" label="English captions" src="/path/to/captions.vtt" srclang="en" default /> {% endcomment %}
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+{% endblock cineContent %}

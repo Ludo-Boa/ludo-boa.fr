@@ -1,0 +1,26 @@
+<header class="header">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-transparent" aria-label="Third navbar example">
+        <div class="container">
+            <a class="navbar-brand" href="{% url "movie-list" %}"><span>HOME</span>CINEMA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+    
+            <div class="collapse navbar-collapse" id="navbarsExample03">
+                <ul class="navbar-nav ms-auto mb-2 mb-sm-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url "movie-list"%}">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'logout' %}" class="nav-link text-white">
+                                <i class="bi bi-box-arrow-right"></i>   Déconnexion   
+                            </a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

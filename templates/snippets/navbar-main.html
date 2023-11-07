@@ -1,0 +1,17 @@
+<!-- Navigation-->
+<nav id="navbar-main" class="navbar">
+    {% include "snippets/main-nav.html" %}
+    <i class="bi bi-list mobile-nav-toggle" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarDark" aria-controls="offcanvasNavbarDark" aria-label="Toggle navigation"></i>
+</nav>
+
+<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbarDark" aria-labelledby="offcanvasNavbarDarkLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasNavbarDarkLabel">Ludovic S.B</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <nav id="navbar-main" class="mobile-nav">
+            {% include "snippets/main-nav.html" %}
+        </nav>
+    </div>
+</div>

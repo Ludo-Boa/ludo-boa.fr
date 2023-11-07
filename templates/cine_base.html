@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <meta name="robots" content="noindex, nofollow" />
+        <title>Ludovic Borbolla - Site web personnel</title>
+
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <!-- Vendor CSS Files -->
+        <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet" />
+        <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet" />
+        <link href="{% static 'vendor/ionicons/ionicons.min.css' %}" rel="stylesheet" />
+        <link href="{% static 'vendor/plyr/3.7.8/plyr.css' %}" rel="stylesheet" />
+        <link href="{% static 'vendor/plyr/3.7.8/plyr.svg' %}" rel="stylesheet" />
+        <!-- Template Cine CSS File -->
+        <link href="{% static 'css/cinemax.css' %}" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100 cinemax">
+        <main class="flex-shrink-0">
+
+            {% include "snippets/cine_header.html" %}
+            
+
+            {% block cineContent %}  {% endblock cineContent %}
+            
+        </main>
+
+        <!-- Vendor JS Files -->
+        <script src="{% static 'vendor/jquery/jquery-3.7.1.min.js' %}"></script>
+        <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'vendor/plyr/3.7.8/plyr.js' %}"></script>
+        <!-- Template Cine JS File -->
+        <script src="{% static "js/cine.js" %}"></script>
+
+    </body>
+</html>

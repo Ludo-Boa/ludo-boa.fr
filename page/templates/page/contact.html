@@ -1,0 +1,82 @@
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block mainContent %} 
+
+{% include "snippets/header-main-top.html" %}
+
+<section id="contact" class="contact section-show">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Contact</h2>
+            <p>Contactez-moi</p>
+        </div>
+
+        {% if contact_name %}
+        <div class="my-3">
+            <center>
+            <h2>Merci, {{ contact_name }}</h2>
+            <p>J'ai reçu votre email et je vous répondrai sous peu...</p>
+            </center>
+        </div>
+
+        {% else %}
+            <form action="{% url "contact" %}" method="post" role="form" class="php-email-form mt-4">
+                {% csrf_token %}
+                <div class="row">
+                <div class="col-md-6 form-group">
+                    <input type="text" name="contact-name" class="form-control" id="name" placeholder="Votre nom" required="">
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input type="email" class="form-control" name="contact-email" id="email" placeholder="Votre Email" required="">
+                </div>
+                </div>
+                <div class="form-group mt-3">
+                    <input type="text" class="form-control" name="contact-subject" id="subject" placeholder="Sujet" required="">
+                </div>
+                <div class="form-group mt-3">
+                    <textarea class="form-control" name="contact-message" rows="5" placeholder="Message" required=""></textarea>
+                </div>
+                
+                <div class="text-center mt-4"><button type="submit">Envoyer le message</button></div>
+            </form>
+        {% endif %}      
+
+        <div class="row mt-2">
+
+            <div class="col-md-6 mt-4 d-flex align-items-stretch">
+            <div class="info-box">
+                <i class="bi bi-geo-alt-fill"></i>
+                <h3>Mon adresse</h3>
+                <p>Nancray</p>
+            </div>
+            </div>
+
+            <div class="col-md-6 mt-4 d-flex align-items-stretch">
+            <div class="info-box">
+                <i class="bi bi-share-fill"></i>
+                <h3>Profils sociaux</h3>
+                {% include "snippets/social_links.html" %}
+            </div>
+            </div>
+
+            <div class="col-md-6 mt-4 d-flex align-items-stretch">
+                <div class="info-box">
+                    <i class="bi bi-envelope-fill"></i>
+                    <h3>Envoyez moi un email</h3>
+                    <p>hello@ludo-boa.fr</p>
+                </div>
+            </div>
+            <div class="col-md-6 mt-4 d-flex align-items-stretch">
+                <div class="info-box">
+                    <i class="bi bi-telephone-fill"></i>
+                    <h3>Appelez-moi</h3>
+                    <p>06 58 19 68 32</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock mainContent %} 

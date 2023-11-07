@@ -1,0 +1,61 @@
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block mainContent %} 
+
+{% include "snippets/header-main-top.html" %}
+
+
+<!-- Full screen modal -->
+{% comment %} <div id="popup" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-body"></div>
+      </div>
+    </div>
+</div> {% endcomment %}
+
+
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio section-show">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Portfolio</h2>
+            <p>Mes travaux</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center">
+                <ul id="portfolioFilter" class="portfolio_filter">
+                    <li data-filter="*" class="current">All</li>
+                    {% for category in categories_list %}
+                    <li data-filter=".filter-{{ category.name }}">{{ category.name|upper }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="row portfolioContainer">
+            {% for portfolio in portfolio_list %}
+            <div class="col-lg-4 col-md-6 portfolio-item filter-{{ portfolio.category|lower }}">
+                <div class="portfolio-wrap">
+                    <img src="{{ portfolio.image.url }}" class="img-fluid" alt="{{ portfolio.name }}">
+                    <div class="portfolio-info">
+                        <h4>{{ portfolio.name }}</h4>
+                        <p>{{ portfolio.category }}</p>
+                        <div class="portfolio-links">
+                            <a class="project-detail" href="{{ portfolio.get_absolute_url }}"  title="En savoir +">
+                                <i class="bi bi-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section><!-- End Portfolio Section -->
+
+  {% endblock mainContent %}

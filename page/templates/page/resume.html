@@ -1,0 +1,65 @@
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block mainContent %} 
+
+{% include "snippets/header-main-top.html" %}
+
+<section id="resume" class="resume section-show">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>CV</h2>
+            <p>consultez mon CV</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="resume-title">Résumé</h3>
+                <div class="resume-item pb-0">
+                    <h4>Ludovic S.B</h4>
+                    <p>
+                        <em>Passionné par le web et le numérique, c'est après 17 ans dans le domaine automobile que je me suis lancé dans cette nouvelle aventure.
+                            Par le biais d'une reconversion professionnelle, je me suis formé au métier de développeur web en intégrant la Wild Code School en 2016. Grâce à cette formation intensive, j'ai pu apprendre à développer des sites web et des applications.
+                            Aujourd'hui, je continue à m'auto-former et à développer de nouveaux projets.
+                        </em>
+                    </p>
+                    <a href="{% static "file/CV_Ludovic_Salvi_Borbolla_v2.1.pdf" %}" class="btn btn-outline-success" target="blank">Télécharger le CV</a>
+                </div>
+
+                <h3 class="resume-title">Formation</h3>
+                {% for education in educations_list %}
+                <div class="resume-item">
+                    <h4>{{ education.title }}</h4>
+                    <h5>{{ education.date_start|date:"m/Y" }} - {{ education.date_end|date:"m/Y" }}</h5>
+                    <p><em>à {{ education.school }} - {{ education.city }}</em></p>
+                    <p>{{ education.level }} {% if education.graduation %} / Diplomé {% else %} / Niveau {% endif %}</p>
+                </div>
+                {% empty %}
+                        <p>Aucune formation pour l'instant.</p>
+                {% endfor %}    
+            </div>
+            <!-- end/col -->
+
+            <div class="col-lg-6">
+                <h3 class="resume-title">Expérience professionnelle</h3>
+                {% for experience in experience_list %}
+                <div class="resume-item">
+                    <h4>{{ experience.job }}</h4>
+                    <h5>{{ experience.date_start|date:"m/Y" }} - {% if experience.date_end %} {{ experience.date_end|date:"m/Y"}} {% endif %}</h5>
+                    <p><em>{{ experience.business|upper }} </em>, {{ experience.city }} </p>
+                    <div>{{ experience.task_description|safe }}</div>
+                </div>
+                {% empty %}
+                <hr>
+                <p>Aucune expérience pour l'instant.</p>
+                {% endfor %}
+            </div>
+            <!-- end/col -->
+        </div>
+        <!-- end/row-->
+
+    </div>
+</section>
+
+{% endblock mainContent %}

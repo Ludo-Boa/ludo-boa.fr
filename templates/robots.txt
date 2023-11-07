@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /cinema/
+Disallow: /admin/
+Disallow: /media/
+Disallow: /test/
+Disallow: /cine_base.html
+Disallow: /cine_header.html
+Disallow: /movie_list.html
+Disallow: /movie_detail.html

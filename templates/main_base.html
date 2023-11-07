@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Ludovic S.B | Page web personnel</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet" />
+    <!-- Devicon-->
+    {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"> {% endcomment %}
+    <link href="{% static 'vendor/devicons/devicon.min.css' %}" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+    <link href="{% static "img/favicons/apple-touch-icon.png" %}" rel="apple-touch-icon" sizes="180x180" />
+    <link href="{% static "img/favicons/favicon-32x32.png" %}" rel="icon" type="image/png" sizes="32x32" />
+    <link href="{% static "img/favicons/favicon-16x16.png" %}" rel="icon" type="image/png" sizes="16x16" />
+</head>
+<body>
+    {% block mainContent %}  {% endblock mainContent %}
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'vendor/jquery/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    
+</body>
+</html>

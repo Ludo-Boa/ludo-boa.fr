@@ -1,0 +1,58 @@
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block mainContent %} 
+
+
+
+<!-- ======= Portfolio Details ======= -->
+<div id="portfolio-details" class="portfolio-details">
+    <a href="{% url "portfolio" %}" class="portfolio-return btn btn-link float-end me-5">
+        <i class="bi bi-x-circle"></i>
+    </a>
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-8">
+        <h2 class="portfolio-title">{{ portfolio_detail.name }}</h2>
+
+        <div class="portfolio-details-slider swiper">
+            <div class="swiper-wrapper align-items-center">
+
+            <div class="swiper-slide">
+                {% if portfolio_detail.image %}
+                <img src="{{ portfolio_detail.image.url }}" alt="{{ portfolio_detail.name }}" class="img-fluid">
+                {% else %}
+                <p>Pas d'image sur ce projet</p>
+                {% endif %}
+            </div>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        </div>
+
+        <div class="col-lg-4 portfolio-info">
+            <h3>Information du projet</h3>
+            <ul>
+                <li><strong>Categorie :</strong> {{ portfolio_detail.category }}</li>
+                {% if portfolio_detail.created %}
+                <li><strong>Date :</strong> {{ portfolio_detail.created }}</li>
+                {% endif %}
+                {% if portfolio_detail.url  %}
+                <li><strong>URL du projet :</strong> <a href="{{ portfolio_detail.url }}" target="blank">{{ portfolio_detail.url }}</a></li>
+                {% endif %}
+            </ul>
+            <p>{{ portfolio_detail.desc|safe }}</p>
+        </div>
+
+    </div>
+
+</div>
+</div><!-- End Portfolio Details -->
+
+
+{% endblock mainContent %}
+

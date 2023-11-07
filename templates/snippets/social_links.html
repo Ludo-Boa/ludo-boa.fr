@@ -1,0 +1,7 @@
+<div class="social-links">
+    {% for social in social_list %}
+        <a href="{{ social.link }}" target="blank" rel="noreferrer" class="{{ social.name|lower }}" title="{{ social.name|lower }}">
+            <i class="devicon-{{ social.name|lower }}-plain"></i>
+        </a>
+    {% endfor %}
+</div>
